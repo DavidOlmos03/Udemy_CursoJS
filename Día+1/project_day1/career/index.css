@@ -12,3 +12,7 @@
 .menu {
     padding-top: 20px;
 }
+a[href*="./index"]:hover{
+    color:blueviolet;
+    font-size: 15px;
+}

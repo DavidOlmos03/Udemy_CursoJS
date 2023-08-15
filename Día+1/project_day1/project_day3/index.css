@@ -1,0 +1,41 @@
+.principalBox{
+    border: solid;
+    border-width: 1px;
+    border-style: dashed;
+}
+.formulary{
+    margin-right: 70%;
+    border: solid;
+    position:static;
+}
+.imageMarkTwain{
+    margin-left: 33%;
+    border: solid;
+    position:static;
+}
+.imageMarkTwain img{
+    width: 100%;
+}
+button {
+    width: 100%;
+    background-color: rgb(205, 245, 245);
+    border-radius: 5px;
+}
+.questions {
+    text-align: center;
+    font-style:italic;
+    background-color: rgb(247, 145, 138);
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.buttonsMenu{
+    border-radius: 5px;
+}
+.buttonsMenu button{
+    margin-top: 10px;
+}
+
+ 
+

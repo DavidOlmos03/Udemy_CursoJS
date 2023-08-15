@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <head>
+        <title>Play One</title>
+        <link rel="stylesheet" href="./index.css"></link>
+        <link rel="stylesheet" href="../index.css"></head>
+    </head>
+    <body> <!--onload="startTime()"-->
+        
+        <audio id="audioTimeOut">
+            <source src="audio/alarma.mp3" type="audio/mpeg">
+            Sonido no habilitado
+        </audio>
+        <!--questions-->
+        <div class="title">Answer the questios as fast as you can!</div><h1 id="textoCronometro">30</h1>
+        <div class="principalBox"> 
+            <div class="formulary">
+                <div class="questions">
+                    <p>1. What's your name?</p>
+                    <input type="text" id="question1">
+                    <p>2. How old are you?</p>
+                    <input type="text" id="question2">
+                    <p>3. What is your favorite color?</p>
+                    <input type="text" id="question3">
+                    <p>4. Languages speaken in Cánada</p>
+                    <input type="text" id="question4">
+                    <p>5. Do you like the landscapes?</p>
+                    <input type="text" id="question5">
+                </div>
+                <div class="buttonsMenu">
+                    <button onclick="startTime()">START</button><br>
+                    <button onclick="finish()">I FINISHED!!</button><br>
+                    <button onclick="retry()">RETRY</button><br>
+                    <button onclick="returnIndex()">Return</button>
+                </div>
+            </div>
+            <div class = "imageMarkTwain">
+                <img src="./src/Mark_Twain_image.webp" alt="Mark Twain image"></img>
+            </div>
+        </div>
+        
+        
+        <script>
+            let elementoTextoCronometro = document.getElementById("textoCronometro");
+            let elementoSonidoTimeOut = document.getElementById("audioTimeOut");
+
+            let answer1 = document.getElementById("question1");
+            let answer2 = document.getElementById("question2");
+            let answer3 = document.getElementById("question3");
+            let answer4 = document.getElementById("question4");
+            let answer5 = document.getElementById("question5");
+            
+            let timeIsUp;
+            let timeInterval;
+            
+            function startTime(){
+                timeIsUp = setTimeout(completedTime,1000*30);
+                timeInterval = setInterval(tictac,1000);
+            }
+            function completedTime(){
+                clearTimeout(timeIsUp);
+                elementoSonidoTimeOut.play();
+                alert("Game over");
+            }
+            function tictac(){
+                if(elementoTextoCronometro.textContent>0){
+                    let segundos = elementoTextoCronometro.textContent-1;
+                    elementoTextoCronometro.textContent = segundos; 
+                }    
+            }  
+            function retry(){
+                location.reload();
+            }
+
+            function finish() {
+                clearTimeout(timeIsUp);                             
+                clearInterval(timeInterval);
+                //here
+                let actualTime = new Date();
+                let date = actualTime.toLocaleDateString("es-Es");
+                let answers = answer1.value +"\n"+answer2.value+"\n"+answer3.value +"\n"+answer4.value+"\n"+answer5.value
+                alert(date+"\n"+answers);
+            }
+            function returnIndex(){
+                window.history.back();
+            }
+        </script>
+
+    </body>
+</html>
