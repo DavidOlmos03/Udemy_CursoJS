@@ -1,20 +1,26 @@
 .principalBox{
+    display: flex;
+    align-items: flex-start;
     border: solid;
-    border-width: 1px;
-    border-style: dashed;
+    border: 1px solid #ccc;
 }
+/*
+.formulary, .imageMarkTwain{
+    Here we have slyle for both boxes
+}*/
 .formulary{
-    margin-right: 70%;
-    border: solid;
-    position:static;
+    flex: 1;
+    border:1px solid #ccc;
+    padding: 10px;
 }
 .imageMarkTwain{
-    margin-left: 33%;
-    border: solid;
-    position:static;
+    width: 70%;
+    height: 521px;
 }
 .imageMarkTwain img{
+    flex: 0;
     width: 100%;
+    height:100% ;
 }
 button {
     width: 100%;
