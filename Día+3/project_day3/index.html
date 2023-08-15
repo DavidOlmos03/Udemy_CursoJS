@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <head>
+        <title>Play One</title>
+    </head>
+    <body> <!--onload="startTime()"-->
+        <!--questions-->
+        <p>First question</p>
+        <input type="text" id="question1">
+        <p>Second question</p>
+        <input type="text" id="question2">
+        <p>Third question</p>
+        <input type="text" id="question3">
+        <p>fourth question</p>
+        <input type="text" id="question4">
+        <p>fifth question</p>
+        <input type="text" id="question5">
+        <h1 id="textoCronometro">30</h1>
+        <audio id="audioTimeOut">
+            <source src="audio/alarma.mp3" type="audio/mpeg">
+            Sonido no habilitado
+        </audio>
+        <button onclick="startTime()">START</button>
+        <button onclick="retry()">RETRY</button>
+        <button onclick="contentAnswers()">SHOW ANSWERS</button>
+        
+        <script>
+            let elementoTextoCronometro = document.getElementById("textoCronometro");
+            let elementoSonidoTimeOut = document.getElementById("audioTimeOut");
+
+            let answer1 = document.getElementById("question1");
+            let answer2 = document.getElementById("question2");
+            let answer3 = document.getElementById("question3");
+            let answer4 = document.getElementById("question4");
+            let answer5 = document.getElementById("question5");
+            
+            let timeIsUp;
+            let timeInterval;
+            
+            function startTime(){
+                timeIsUp = setTimeout(completedTime,1000*30);
+                timeInterval = setInterval(tictac,1000);
+            }
+            function completedTime(){
+                elementoSonidoTimeOut.play();
+                alert("Game over");
+            }
+            function tictac(){
+                if(elementoTextoCronometro.textContent>0){
+                    let segundos = elementoTextoCronometro.textContent-1;
+                    elementoTextoCronometro.textContent = segundos; 
+                }    
+            }
+            
+            function contentAnswers(){
+                let actualTime = new Date();
+                let year = actualTime.getFullYear();
+                let month = String(actualTime.getMonth()).padStart(2,"0");
+                let day = String(actualTime.getDay()).padStart(2,"0");
+                date = day+"/"+month+"/"+year;
+                let answers = answer1.value +"\n"+answer2.value+"\n"+answer3.value +"\n"+answer4.value+"\n"+answer5.value
+
+                alert(answers+"\n"+date);
+            }           
+            function retry(){
+                location.reload();
+            }
+
+            function finish() {
+                clearTimeout(timeIsUp);                             
+                clearInterval(timeInterval);
+            }
+            finish();
+        </script>
+
+    </body>
+</html>
