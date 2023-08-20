@@ -1,6 +1,9 @@
 function recomendar(genero){
     var age = document.getElementById("age").value;
+
     /*
+    1. Verificar que se haya ingresado un dato y que este sea valido
+    2. Crear funcion generadora de peliculas recomendadas
     if (){
         alert("Ingrese una edad");
     }*/
